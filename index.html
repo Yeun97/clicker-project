@@ -1,0 +1,498 @@
+<html>
+
+<head>
+</head>
+
+<style>
+  #wrapper {
+    width: 2000px;
+    //border: 1px solid black;
+    overflow: hidden;
+    /* will contain if #first is longer than #second */
+  }
+
+  #left {
+    text-align: center;
+    float: left;
+    width: 700px;
+  }
+
+  #leftHeader {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  #newMessage {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  #middle {
+    text-align: center;
+    float: left;
+    width: 650px;
+    margin-top: 50px;
+  }
+
+  #buttonHeader {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  #right {
+    text-align: center;
+    float: left;
+    width: 500px;
+  }
+
+  #topClickersHeader {
+    margin-top: 50px;
+    margin-bottom: 35px;
+  }
+
+
+  form {
+    text-align: center;
+  }
+
+  textarea {
+    text-align: center;
+  }
+
+  #topClickers {
+    text-align: center;
+  }
+
+  #redButton {
+    mix-blend-mode: multiply;
+    height: 400px;
+  }
+
+  body {
+    background-color: peachpuff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  p {
+    font-family: 'Reenie Beanie';
+    font-size: 1rem;
+  }
+
+  ul,
+  li {
+    list-style: none;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  ul li a {
+    text-decoration: none;
+    color: #000;
+    background: #ffc;
+    display: block;
+    height: 10em;
+    width: 10em;
+    padding: 1em;
+    box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+    transform: rotate(-6deg);
+    transition: transform .15s linear;
+  }
+
+  ul li:nth-child(even) a {
+    transform: rotate(4deg);
+    position: relative;
+    top: 5px;
+    background: #cfc;
+  }
+
+  ul li:nth-child(4n) a {
+    transform: rotate(-3deg);
+    position: relative;
+    top: -5px;
+    background: #ccf;
+  }
+
+  ul li:nth-child(3n) a {
+    transform: rotate(5deg);
+    position: relative;
+    top: -10px;
+  }
+
+  ul li a:hover,
+  ul li a:focus {
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+    transform: scale(1.25);
+    position: relative;
+    z-index: 5;
+  }
+
+  ul li {
+    margin: 1em;
+  }
+
+  @import url(https://fonts.googleapis.com/css?family=Montserrat:900|Raleway:400,400i,700,700i);
+
+  /*** FONTS ***/
+  /*** VARIABLES ***/
+  /* Colors */
+  /*** EXTEND ***/
+  /* box-shadow */
+  ol.gradient-list>li,
+  ol.gradient-list>li::before {
+    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
+  }
+
+  /*** STYLE ***/
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    display: block;
+    margin: 0 auto;
+    max-width: 40rem;
+    padding: 1rem;
+  }
+
+  ol.gradient-list {
+    counter-reset: gradient-counter;
+    list-style: none;
+    margin: 1.75rem 0;
+    padding-left: 1rem;
+  }
+
+  ol.gradient-list>li {
+    background: white;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    counter-increment: gradient-counter;
+    margin-top: 1rem;
+    min-height: 3rem;
+    padding: 1rem 1rem 1rem 3rem;
+    position: relative;
+  }
+
+  ol.gradient-list>li::before,
+  ol.gradient-list>li::after {
+    background: linear-gradient(135deg, #83e4e2 0%, #a2ed56 100%);
+    border-radius: 1rem 1rem 0 1rem;
+    content: "";
+    height: 3rem;
+    left: -1rem;
+    overflow: hidden;
+    position: absolute;
+    top: -1rem;
+    width: 3rem;
+  }
+
+  ol.gradient-list>li::before {
+    align-items: flex-end;
+    content: counter(gradient-counter);
+    color: #1d1f20;
+    display: flex;
+    font: 900 1.5em/1 "Montserrat";
+    justify-content: flex-end;
+    padding: 0.125em 0.25em;
+    z-index: 1;
+  }
+
+
+
+  ol.gradient-list>li+li {
+    margin-top: 2rem;
+  }
+
+
+  @import "compass/css3";
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800);
+
+  .headers {
+    color: #444;
+    font: 800 350%/1.4 'Open Sans', sans-serif;
+    text-transform: uppercase;
+  }
+
+  .headers::selection {
+    -webkit-text-stroke: 4px #fb8a05;
+    color: transparent;
+  }
+
+  @import "compass/css3/transform";
+  @import url(https://fonts.googleapis.com/css?family=Bangers);
+
+
+  #clicks {
+    text-align: center;
+    font-weight: normal;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 8em;
+    white-space: nowrap;
+    font-size: 12vw;
+    z-index: 1000;
+    font-family: 'Bangers', cursive;
+    text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
+    transform: rotate(-2deg);
+
+  }
+
+  @media screen and (max-width: 50em) {
+    #clicks {
+      font-size: 20vw;
+    }
+  }
+</style>
+
+<body>
+  <div id="wrapper">
+
+    <div id="left">
+      <h1 id="leftHeader" class="headers"> Latest messages:</h1>
+      <div id="messages">
+        <ul>
+          <li>
+            <a href="#" contenteditable>
+              <h2 id="stickyName0"></h2>
+              <p id="stickyMessage0"></p>
+            </a>
+          </li>
+          <li>
+            <a href="#" contenteditable>
+              <h2 id="stickyName1"></h2>
+              <p id="stickyMessage1"></p>
+            </a>
+          </li>
+          <li>
+            <a href="#" contenteditable>
+              <h2 id="stickyName2"></h2>
+              <p id="stickyMessage2"></p>
+            </a>
+          </li>
+          <li>
+            <a href="#" contenteditable>
+              <h2 id="stickyName3"></h2>
+              <p id="stickyMessage3"></p>
+            </a>
+          </li>
+          <li>
+            <a href="#" contenteditable>
+              <h2 id="stickyName4"></h2>
+              <p id="stickyMessage4"></p>
+            </a>
+          </li>
+          <li>
+            <a href="#" contenteditable>
+              <h2 id="stickyName5"></h2>
+              <p id="stickyMessage5"></p>
+            </a>
+          </li>
+          <li>
+            <a href="#" contenteditable>
+              <h2 id="stickyName6"></h2>
+              <p id="stickyMessage6"></p>
+            </a>
+          </li>
+          <li>
+            <a href="#" contenteditable>
+              <h2 id="stickyName7"></h2>
+              <p id="stickyMessage7"></p>
+            </a>
+          </li>
+          <li>
+            <a href="#" contenteditable>
+              <h2 id="stickyName8"></h2>
+              <p id="stickyMessage8"></p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <h1 id="newMessage">New message</h1>
+
+      <form>
+        <label for="msg">Message</label>
+        <textarea id="msg"></textarea>
+        <button id='submitButton'>Submit</button>
+      </form>
+    </div>
+
+    <div id="middle">
+      <h1 id="clicks"></h1>
+
+      <form>
+        <input type="image" id="redButton" src="https://image.freepik.com/free-vector/glass-red-button-round-shape-web-design_110464-109.jpg" />
+        <div>
+          <textarea id="name" placeholder="Please Enter Your Name" cols="21" rows="2" style="resize:none"></textarea>
+        </div>
+      </form>
+    </div>
+
+    <div id="right">
+      <h2 id="topClickersHeader" class="headers"> Top Clickers:</h2>
+      <div id="topClickers">
+        <main>
+          <ol class="gradient-list">
+            <li id="topClicker0"></li>
+            <li id="topClicker1"></li>
+            <li id="topClicker2"></li>
+            <li id="topClicker3"></li>
+            <li id="topClicker4"></li>
+            <li id="topClicker5"></li>
+            <li id="topClicker6"></li>
+          </ol>
+        </main>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    var API_URL = 'https://uyy1jrnsm0.execute-api.us-east-1.amazonaws.com/prod/clicks';
+
+    $(document).ready(function() {
+      $.ajax({
+        type: 'GET',
+        url: 'https://vhyl9b6jpj.execute-api.us-east-1.amazonaws.com/prod/message',
+
+        success: function(data) {
+
+          data.body.slice(-9).reverse().forEach(function(Message, index) {
+            $(eval('stickyName' + index)).html('');
+            $(eval('stickyMessage' + index)).html('');
+            $(eval('stickyName' + index)).append(Message.name);
+            $(eval('stickyMessage' + index)).append(Message.message);
+          })
+        }
+      });
+
+      $.ajax({
+        type: 'GET',
+        url: API_URL,
+
+        success: function(data) {
+          $('#clicks').html('');
+
+          data.body.forEach(function(Message) {
+            $('#clicks').append('<p id=clicks>' + Message.clicks + '</p>');
+          })
+        }
+      });
+
+      $.ajax({
+        type: 'GET',
+        url: "https://uyy1jrnsm0.execute-api.us-east-1.amazonaws.com/prod/mostclicks",
+
+        success: function(data) {
+
+          data.body.slice(-7).reverse().forEach(function(Message, index) {
+            $(eval('topClicker' + index)).append('<p>' + Message.name + ": " + Message.clicks + '</p>');
+          })
+        }
+      });
+    });
+
+    $('#submitButton').on('click', function() {
+      if ($('#name').val() == "") {
+        alert("I SAID enter your NAME");
+      } else {
+        $.ajax({
+          type: 'POST',
+          url: 'https://vhyl9b6jpj.execute-api.us-east-1.amazonaws.com/prod/message',
+          data: JSON.stringify({
+            "message": $('#msg').val(),
+            "name": $('#name').val()
+          }),
+          contentType: "application/json",
+
+          success: function(data) {
+            $.ajax({
+              type: 'GET',
+              url: 'https://vhyl9b6jpj.execute-api.us-east-1.amazonaws.com/prod/message',
+
+              success: function(data) {
+
+                data.body.slice(-9).reverse().forEach(function(Message, index) {
+                  $(eval('stickyName' + index)).html('');
+                  $(eval('stickyMessage' + index)).html('');
+                  $(eval('stickyName' + index)).append(Message.name);
+                  $(eval('stickyMessage' + index)).append(Message.message);
+                })
+              }
+            });
+          }
+        });
+
+        return false;
+      }
+    });
+
+    $('#redButton').on('click', function() {
+      if ($('#name').val() == "") {
+        alert("I SAID enter your NAME");
+      } else {
+        $.ajax({
+          type: 'PUT',
+          url: API_URL,
+          data: JSON.stringify({
+            "id": 97,
+            "name": $('#name').val()
+          }),
+          contentType: "application/json",
+
+          success: function() {
+            $.ajax({
+              type: 'GET',
+              url: API_URL,
+
+              success: function(data) {
+                $('#clicks').html('');
+
+                data.body.forEach(function(Message) {
+                  $('#clicks').append('<p id=clicks>' + Message.clicks + '</p>');
+                })
+              }
+            });
+
+            $.ajax({
+              type: 'GET',
+              url: "https://uyy1jrnsm0.execute-api.us-east-1.amazonaws.com/prod/mostclicks",
+
+              success: function(data) {
+
+                data.body.slice(-7).reverse().forEach(function(Message, index) {
+                  $(eval('topClicker' + index)).html('');
+                  $(eval('topClicker' + index)).append('<p>' + Message.name + ": " + Message.clicks + '</p>');
+                })
+              }
+            });
+          }
+        });
+
+        return false;
+      }
+    });
+  </script>
+</body>
+
+</html>
